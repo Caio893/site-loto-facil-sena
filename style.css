@@ -1,0 +1,71 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #e6f0ff;
+        color: #003366;
+    }
+    h1 {
+        text-align: center;
+        color: #0055cc;
+    }
+    label {
+        font-weight: bold;
+        margin-top: 10px;
+        display: block;
+    }
+    input, button {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #0055cc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+    input:focus, button:focus {
+        outline: none;
+        border-color: #003399;
+        box-shadow: 0 0 5px #6699ff;
+    }
+    button {
+        background-color: #0055cc;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #003399;
+    }
+    #jogosContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    .jogo {
+        background-color: #cce0ff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 51, 102, 0.2);
+    }
+    #resultados {
+        background-color: #cce0ff;
+        margin-top: 30px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 51, 102, 0.2);
+    }
+    ul {
+        padding-left: 20px;
+    }
+    @media (max-width: 600px) {
+        input, button {
+            font-size: 14px;
+            padding: 8px;
+        }
+        .jogo {
+            padding: 10px;
+        }
+    }
+</style>
