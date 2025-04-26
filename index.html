@@ -1,91 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Lotofácil do Márcio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        input, button, textarea { margin: 5px 0; width: 100%; }
-        .jogo { margin-bottom: 10px; }
-        #resultados { margin-top: 20px; }
-    </style>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="caixa.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bem-vindo!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #3a8dde, #74b9ff);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+    .button {
+      background-color: #ffffff;
+      color: #3a8dde;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .button:hover {
+      background-color: #3a8dde;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-
-    <h1>Comparar Dezenas</h1>
-
-    <label>Valor Geral (15 números separados por espaço):</label>
-    <input type="text" id="valorGeral" placeholder="Ex: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
-
-    <label>Quantos jogos deseja comparar?</label>
-    <input type="number" id="quantidadeJogos" min="1">
-
-    <button onclick="gerarCamposJogos()">Gerar Campos de Jogos</button>
-
-    <div id="jogosContainer"></div>
-
-    <button onclick="compararJogos()">Comparar Jogos</button>
-
-    <div id="resultados"></div>
-
-    <script>
-        function gerarCamposJogos() {
-            const container = document.getElementById('jogosContainer');
-            container.innerHTML = ''; // Limpa os campos anteriores
-            const quantidade = parseInt(document.getElementById('quantidadeJogos').value);
-
-            if (isNaN(quantidade) || quantidade < 1) {
-                alert('Digite uma quantidade válida de jogos.');
-                return;
-            }
-
-            for (let i = 1; i <= quantidade; i++) {
-                const div = document.createElement('div');
-                div.className = 'jogo';
-                div.innerHTML = `
-                    <label>Jogo ${i} (15 números separados por espaço):</label>
-                    <input type="text" class="jogoInput" placeholder="Ex: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
-                `;
-                container.appendChild(div);
-            }
-        }
-
-        function compararJogos() {
-            const valorGeralInput = document.getElementById('valorGeral').value.trim();
-            const valorGeral = valorGeralInput.split(/\s+/).map(Number);
-
-            if (valorGeral.length !== 15 || valorGeral.some(isNaN)) {
-                alert('O valor geral deve conter exatamente 15 números válidos.');
-                return;
-            }
-
-            const jogosInputs = document.querySelectorAll('.jogoInput');
-            const jogos = [];
-
-            for (let input of jogosInputs) {
-                const numeros = input.value.trim().split(/\s+/).map(Number);
-                if (numeros.length !== 15 || numeros.some(isNaN)) {
-                    alert('Cada jogo deve conter exatamente 15 números válidos.');
-                    return;
-                }
-                jogos.push(numeros);
-            }
-
-            const resultados = [];
-
-            jogos.forEach((jogo, index) => {
-                let acertos = jogo.filter(numero => valorGeral.includes(numero)).length;
-                resultados.push(`Jogo ${index + 1}: ${acertos} acertos`);
-            });
-
-            document.getElementById('resultados').innerHTML = `
-                <h2>Resultados:</h2>
-                <ul>${resultados.map(r => `<li>${r}</li>`).join('')}</ul>
-            `;
-        }
-    </script>
-
+  <h1>Seja Bem-vindo!</h1>
+  <div class="buttons">
+    <a href="./sena/sena.html" class="button">Ir para Mega-Sena</a>
+    <a href="./facil/facil.html" class="button">Ir para Loto-Fácil</a>
+  </div>
 </body>
 </html>

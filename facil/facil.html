@@ -9,15 +9,15 @@
         .jogo { margin-bottom: 10px; }
         #resultados { margin-top: 20px; }
     </style>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="caixa.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../caixa.png">
 </head>
 <body>
 
     <h1>Comparar Dezenas</h1>
 
-    <label>Valor Geral (6 números separados por espaço):</label>
-    <input type="text" id="valorGeral" placeholder="Ex: 1 2 3 4 5 6">
+    <label>Valor Geral (15 números separados por espaço):</label>
+    <input type="text" id="valorGeral" placeholder="Ex: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
 
     <label>Quantos jogos deseja comparar?</label>
     <input type="number" id="quantidadeJogos" min="1">
@@ -45,27 +45,19 @@
                 const div = document.createElement('div');
                 div.className = 'jogo';
                 div.innerHTML = `
-                    <label>Jogo ${i} (6 números separados por espaço):</label>
-                    <input type="text" class="jogoInput" placeholder="Ex: 1 2 3 4 5 6">
+                    <label>Jogo ${i} (15 números separados por espaço):</label>
+                    <input type="text" class="jogoInput" placeholder="Ex: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
                 `;
                 container.appendChild(div);
             }
-        }
-
-        function validarNumeros(numeros, quantidadeEsperada) {
-            if (numeros.length !== quantidadeEsperada) return false;
-            if (numeros.some(num => isNaN(num) || num < 1 || num > 60)) return false;
-            const setNumeros = new Set(numeros);
-            if (setNumeros.size !== numeros.length) return false; // Checa números repetidos
-            return true;
         }
 
         function compararJogos() {
             const valorGeralInput = document.getElementById('valorGeral').value.trim();
             const valorGeral = valorGeralInput.split(/\s+/).map(Number);
 
-            if (!validarNumeros(valorGeral, 6)) {
-                alert('O valor geral deve conter exatamente 6 números válidos entre 1 e 60, sem repetir.');
+            if (valorGeral.length !== 15 || valorGeral.some(isNaN)) {
+                alert('O valor geral deve conter exatamente 15 números válidos.');
                 return;
             }
 
@@ -74,8 +66,8 @@
 
             for (let input of jogosInputs) {
                 const numeros = input.value.trim().split(/\s+/).map(Number);
-                if (!validarNumeros(numeros, 6)) {
-                    alert('Cada jogo deve conter exatamente 6 números válidos entre 1 e 60, sem repetir.');
+                if (numeros.length !== 15 || numeros.some(isNaN)) {
+                    alert('Cada jogo deve conter exatamente 15 números válidos.');
                     return;
                 }
                 jogos.push(numeros);
