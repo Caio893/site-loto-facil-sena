@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Mega-Sena do Márcio</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../mobile.css">
     <link rel="shortcut icon" href="../caixa.png">
 </head>
 <body>
@@ -11,7 +12,7 @@
     <h1>Comparar Dezenas</h1>
 
     <label>Valor Geral (6 números de 2 dígitos separados por espaço):</label>
-    <input type="text" id="valorGeral" maxlength="17" placeholder="Ex: 01 02 03 04 05 06" oninput="formatarInput(this)">
+    <input type="tel" id="valorGeral" maxlength="17" placeholder="Ex: 01 02 03 04 05 06" oninput="formatarInput(this)">
 
     <label>Quantos jogos deseja comparar?</label>
     <input type="number" id="quantidadeJogos" min="1">
@@ -40,7 +41,7 @@
                 div.className = 'jogo';
                 div.innerHTML = `
                     <label>Jogo ${i} (6 números de 2 dígitos separados por espaço):</label>
-                    <input type="text" class="jogoInput" maxlength="17" placeholder="Ex: 01 02 03 04 05 06" oninput="formatarInput(this)">
+                    <input type="tel" class="jogoInput" maxlength="17" placeholder="Ex: 01 02 03 04 05 06" oninput="formatarInput(this)">
                 `;
                 container.appendChild(div);
             }
